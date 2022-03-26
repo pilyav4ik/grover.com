@@ -17,7 +17,7 @@
         <aspectj.version>1.9.7</aspectj.version>
         <selenium.version>4.1.2</selenium.version>
         <junit.version>4.13.2</junit.version>
-        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <webdrivermanager.version>5.1.0</webdrivermanager.version>
         <testng.version>7.5</testng.version>
         <allure.version>2.17.2</allure.version>
     </properties>

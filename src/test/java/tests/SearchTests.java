@@ -5,14 +5,10 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.SearchResultsPage;
-
-import java.time.Duration;
 
 @Epic("Regression")
 public class SearchTests extends BaseTest {
@@ -22,7 +18,7 @@ public class SearchTests extends BaseTest {
     @Description("Check result count after search")
     public void checkResultCountAfterSearch(){
 
-        driver.get("https://grover.com");
+        openURL("https://grover.com");
 
         HomePage homePage = new HomePage(driver);
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
@@ -34,4 +30,22 @@ public class SearchTests extends BaseTest {
         Assert.assertEquals(res, true);
     }
 
+    @Test(priority = 1)
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Check products count after search on the page")
+    public void checkProductsCountAfterSearch(){
+
+        openURL("https://grover.com");
+
+        HomePage homePage = new HomePage(driver);
+        SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
+
+        homePage.setTextToSearchProductTextbox("iPhone");
+        homePage.submitSearchProductForm();
+
+
+        int productListSize = searchResultsPage.resultProductsList().size();
+
+        Assert.assertEquals(productListSize, 24);
+    }
 }
