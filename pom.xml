@@ -65,6 +65,7 @@
                 <version>2.11.2</version>
                 <configuration>
                     <reportVersion>2.13.2</reportVersion>
+                    <reportDirectory>target</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>
@@ -77,6 +78,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
+                    <parallel>suites</parallel>
+                    <threadCountSuites>2</threadCountSuites>
+                    <perCoreThreadCount>false</perCoreThreadCount>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>

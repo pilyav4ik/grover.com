@@ -21,4 +21,8 @@ public class SearchResultsPage extends BasePage {
     public List<WebElement> resultProductsList(){
         return driver.findElements(By.className("devi6e-0"));
     }
+
+    public WebElement minPriceSliderControl(){
+        return driver.findElement(By.className("input-range__slider-container"));
+    }
 }

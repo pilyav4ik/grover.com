@@ -1,10 +1,8 @@
 package tests;
 
 import base.BaseTest;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import functionality.Retry;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
@@ -13,9 +11,10 @@ import pageObjects.SearchResultsPage;
 @Epic("Regression")
 public class SearchTests extends BaseTest {
 
-    @Test(priority = 1)
+    @Test(retryAnalyzer = Retry.class)
     @Severity(SeverityLevel.NORMAL)
-    @Description("Check result count after search")
+    @Description("Test description: Check result count after search")
+    @Story("Check result count after search")
     public void checkResultCountAfterSearch(){
 
         openURL("https://grover.com");
@@ -25,7 +24,7 @@ public class SearchTests extends BaseTest {
 
         homePage.setTextToSearchProductTextbox("iPhone");
         homePage.submitSearchProductForm();
-        Boolean res = searchResultsPage.resultProducts("77");
+        Boolean res = searchResultsPage.resultProducts("80");
 
         Assert.assertEquals(res, true);
     }
