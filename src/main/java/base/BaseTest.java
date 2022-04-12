@@ -22,7 +22,9 @@ public class BaseTest {
 	}
 
 	public void openURL(String url){
-	    driver.get(url);
+		driver.get(url);
+		BasePage basePage = new BasePage(driver);
+		basePage.acceptCookies();
     }
 
 }

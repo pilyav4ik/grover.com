@@ -24,9 +24,9 @@ public class SearchTests extends BaseTest {
 
         homePage.setTextToSearchProductTextbox("iPhone");
         homePage.submitSearchProductForm();
-        Boolean res = searchResultsPage.resultProducts("80");
+        String res = searchResultsPage.resultProducts();
 
-        Assert.assertEquals(res, true);
+        Assert.assertEquals(res, "37 resultados");
     }
 
     @Test(priority = 1)

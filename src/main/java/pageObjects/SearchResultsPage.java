@@ -14,8 +14,8 @@ public class SearchResultsPage extends BasePage {
     }
 
 
-    public boolean resultProducts(String resultsCount){
-        return driver.findElement(By.xpath("//span[contains(text(), '"+resultsCount +" resultados')]")).isDisplayed();
+    public String resultProducts(){
+        return driver.findElement(By.cssSelector("span.dnrk6q-0.iLROge.sc-18vpzdk-2.ejZQgL")).getText().toLowerCase();
     }
 
     public List<WebElement> resultProductsList(){
